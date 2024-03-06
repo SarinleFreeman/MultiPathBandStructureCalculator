@@ -156,9 +156,9 @@ In the `PostProcessing` folder, the `combination_csv_plotter.py` script is desig
 ### Generating Bandstructure Plots
 
 The BandStructureAnalyzer class, part of the `combination_csv_plotter.py`, automates the generation of bandstructure plots directly from simulation data and stores bandstructure characteristics.
-Below is an example plot:
 
-![Bandstructure Plot](https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/bandstructure_plot.png
+Below is an example plot for IndiumAntimonide:
+![Bandstructure Plot](https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/bandstructure_plot.png?raw=true)
 
 ### Usage Instructions
 
@@ -175,6 +175,9 @@ python PostProcessing/combination_csv_plotter.py --csv_local_dir <PathToYourCSV>
 - `--plot_title`: Title of your plot.
 
 Running this script will generate a plot similar to the example shown above, saving it to the specified directory, along with updating the `args.json` file with the bandgap energy, mean energy, and maximum valence point for further analysis.
+
+E.g:
+
 
 Ensure you have all the dependencies installed and have access to Python and necessary libraries as outlined in the "Getting Started" section of this README.
 
