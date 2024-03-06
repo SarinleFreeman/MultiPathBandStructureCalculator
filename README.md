@@ -84,61 +84,36 @@ In this example:
 ## Simulation Outputs
 The MPBCalc simulation outputs are stored in the user-defined output directory. The key outputs are:
 
-### Key Outputs:
+### Primary Outputs:
 
-- **Critical Point CSV Files**: These files encapsulate the bandstructure between two critical points, the files are formatted as "base-name_point1_to_point2" e.g `IndiumAntimony_0_2_0to0.5_2_0.5.csv`. The files contain tabulated energy values against wave vectors (`kx, ky, kz`). An example snippet:
+- **Individual CSV Files**: These files encapsulate the bandstructure between two critical points, the files are formatted as "base-name_point1_to_point2" e.g `IndiumAntimony_0_2_0to0.5_2_0.5.csv`. The files contain tabulated energy values against wave vectors (`kx, ky, kz`). An example snippet:
   
   ```
   kx,ky,kz,E
   0.0,0.0,0.0,-11.435075688020001
   ```
 
-- **Combined CSV**: Aggregated data across critical point paths, Includes segment points to denote path starts and ends. Example format:
+- **Combined CSV File**: Aggregated data across critical point paths, Includes segment points to denote path starts and ends. Example format:
 
   ```
   kx,ky,kz,E,Segment_Point
   0.0,0.0,0.0,-11.435075688020001,"(0, 0, 0)"
   ```
 
-### Additional Files:
+### Supporting Files:
 
-- **Energy Dispersion (`*Ek`)**: Contains E vs k values, formatted as `<kx ky kz Energy>`.
+- **Energy Dispersion Files (`*nd_Ek`)**: Stores energy (`E`) versus wave vector (`k`) values for segments of the path in binary.
 
-- **Eigen-vectors (`*evec_i`)**: Correspond to each energy level detailed in the `*Ek` files, formatted as `<real complex>`, representing the real and complex parts of Eigen-vectors.
+- **ASCII Energy Dispersion Files (`*nd_Ek_ascii`)**: Energy Dispersion Files in ascii format.
 
-- **Wave Functions (`*wf_i`)**: One per energy level, detailing the wave function’s squared magnitude, `< |ψ|2 >`.
+- **Neighbor Index Files (`*nd_nbrIndx`)**: Detail the indices of neighboring atoms, relevant for understanding atomic interactions and lattice structure.
 
-- **Local Band Structure (`*Ek_proc_*`)**: Local band edge data for subdomains, one file per processor.
+- **Phase Information Files (`*nd_phaseInfo`)**: Contain phase-related data for phase analysis in band structure studies.
 
-- **Trace of Eigen-values (`*eval`)**: Iteration versus Eigen-value data from the Lanczos Eigen-solver.
+- **Lattice Iteration Files (`*nd_lattice_iter`)**: Document details from iterations over the lattice calculations, useful for troubleshooting and understanding calculation progression.
 
-- **Optical Matrix Elements (`*TransX/Y/Z`)**: Contains optical transition rates for different light polarizations, formatted as `<energy_state_i energy_state_f energy_gap transition_rate>`.
+- **Time Detail Files (`*nd_time_detail`)**: Offer insights into the time taken for various calculation stages, assisting in performance analysis.
 
-- **Atom Position Files (`*rAtom_0/1`)**: Pre- and post-strain atom positions in Cartesian coordinates.
+- **XML Parse Files (`*nd_xmlparse`)**: Result from parsing the input XML configuration, providing a log that can be useful for debugging.
 
-- **Atom Type Files (`*aType`)**: Types of atoms present, represented by ASCII numbers.
-
-- **Neighbor Index Files (`*nbrIndx`)**: Information about the four nearest neighbors for each atom, aligning with the atom positions in the `rAtom` file.
-
-### Example Command
-
-To generate the outputs as described, use the following command with default values:
-
-```bash
-python main.py --path G,X,L --xml_template TemplateFiles/silicon.xml --output OutputDirectory --job_directory JobScripts --executable /path/to/nemo3d --post_process_script /path/to/post_process_script
-```
-
-This command instructs MPBCalc to perform simulations along the Γ-X-L path in k-space, using the provided silicon XML template and saving results to `OutputDirectory`.
-
----
-
-Adapt and expand upon these sections as necessary to match your project's output structure and analysis capabilities.
-
-
-
-Example of running a job:
-
-bash
-Copy code
-python main.py --path G,X,L --xml_template TemplateFiles/silicon.xml --output OutputDirectory
-This command sets up the environment for simulating the electronic band structure along the Γ-X-L path for silicon, using the silicon.xml template, and saving the outputs to OutputDirectory.
+- **Template XML Files (`*xml`)**: The source XML files used for each simulation, capturing the simulation setup and parameters.
