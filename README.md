@@ -177,10 +177,74 @@ python PostProcessing/combination_csv_plotter.py --csv_local_dir <PathToYourCSV>
 Running this script will generate a plot similar to the example shown above, saving it to the specified directory, along with updating the `args.json` file with the bandgap energy, mean energy, and maximum valence point for further analysis.
 
 E.g:
-
+```
+{
+    "title": "In",
+    "symbolic_path": [
+        "L",
+        "\u0393",
+        "X",
+        "U",
+        "K",
+        "\u0393"
+    ],
+    "coordinate_representation": [
+        [
+            1,
+            1,
+            1
+        ],
+        [
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            2,
+            0
+        ],
+        [
+            0,
+            2,
+            0
+        ],
+        [
+            0.5,
+            2,
+            0.5
+        ],
+        [
+            0.5,
+            2,
+            0.5
+        ],
+        [
+            1.5,
+            1.5,
+            0
+        ],
+        [
+            1.5,
+            1.5,
+            0
+        ],
+        [
+            0,
+            0,
+            0
+        ]
+    ],
+    "band_energy": 0.23539030244328074,
+    "mean_energy": 0.1377286427952431,
+    "max_segment_point": "(0, 0, 0)"
+}
+```
 
 Ensure you have all the dependencies installed and have access to Python and necessary libraries as outlined in the "Getting Started" section of this README.
 
----
-
-Adapt the example command to match your project setup and directory structure. This section provides a streamlined approach to visualizing and analyzing the electronic band structures post-simulation.
