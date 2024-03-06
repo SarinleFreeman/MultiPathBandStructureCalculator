@@ -86,14 +86,14 @@ The MPBCalc simulation outputs are stored in the user-defined output directory. 
 
 ### Primary Outputs:
 
-- **Individual CSV Files**: These files encapsulate the bandstructure between two critical points, the files are formatted as "base-name_point1_to_point2" e.g `IndiumAntimony_0_2_0to0.5_2_0.5.csv`. The files contain tabulated energy values against wave vectors (`kx, ky, kz`). An example snippet:
+- **Individual CSV Files**: These files encapsulate the bandstructure between two critical points, the files are formatted as "base-name_point1_to_point2" e.g `IndiumAntimony_0_2_0to0.5_2_0.5.csv`. The files contain tabulated energy values against wave vectors (`kx, ky, kz`).
   
   ```
   kx,ky,kz,E
   0.0,0.0,0.0,-11.435075688020001
   ```
 
-- **Combined CSV File**: Aggregated data across critical point paths, Includes segment points to denote path starts and ends. Example format:
+- **Combined CSV File**: Aggregated data across critical point paths, Includes segment points to denote path starts and ends.
 
   ```
   kx,ky,kz,E,Segment_Point
@@ -101,7 +101,25 @@ The MPBCalc simulation outputs are stored in the user-defined output directory. 
   ```
 
 ### Supporting Files:
-
+- **Energy Dispersion Files (`args.json`)**: Stores user-defined path information, e.g ```{
+    "title": "Si",
+    "symbolic_path": [
+        "\u0393",
+        "L"
+    ],
+    "coordinate_representation": [
+        [
+            0,
+            0,
+            0
+        ],
+        [
+            1,
+            1,
+            1
+        ]
+    ]
+}```
 - **Energy Dispersion Files (`*nd_Ek`)**: Stores energy (`E`) versus wave vector (`k`) values for segments of the path in binary.
 
 - **ASCII Energy Dispersion Files (`*nd_Ek_ascii`)**: Energy Dispersion Files in ascii format.
@@ -117,3 +135,20 @@ The MPBCalc simulation outputs are stored in the user-defined output directory. 
 - **XML Parse Files (`*nd_xmlparse`)**: Result from parsing the input XML configuration, providing a log that can be useful for debugging.
 
 - **Template XML Files (`*xml`)**: The source XML files used for each simulation, capturing the simulation setup and parameters.
+
+
+## Job Outputs
+
+Post-job execution, MPBCalc generates several files in the job directory for monitoring and debugging:
+
+- **Job Scripts (`*.sh`)**: Batch scripts executed by the scheduler, e.g., `silicon_0_0_0to1_1_1.sh`.
+
+- **Standard Output (`*.out`)**: Execution logs and NEMO3D outputs, such as `silicon_0_0_0to1_1_1.out`.
+
+- **Standard Error (`*.err`)**: Error messages from the simulation, for example, `silicon_0_0_0to1_1_1.err`.
+
+Review these files to assess job execution and address potential issues.
+
+
+## Bandstructure Viewer Post Processing
+
