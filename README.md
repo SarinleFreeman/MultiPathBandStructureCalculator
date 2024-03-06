@@ -1,2 +1,3 @@
-# MultiPathBandStructureCalculator
-An automated system for bandstructure calculations.
+# MultiPath Band Structure Calculator (MPBCalc)
+
+The MultiPath Band Structure Calculator (MPBCalc) enhances the computational analysis of semiconductor band structures for research and development purposes. This comprehensive tool facilitates the generation of essential simulation files to cover critical Brillouin points within crystal lattices, leveraging the capabilities of the NEMO3D atomistic tight-binding software. Additionally, MPBCalc provides a suite of post-processing scripts designed to assist in the calculation of effective masses, the creation of bandstructure plots, and the analysis of key bandstructure characteristics.
