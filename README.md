@@ -288,7 +288,6 @@ Upon execution, the script outputs several key files:
   
   ![Heavy Hole Band Fitting](https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/Heavy_hole_band_1%_fit.png?raw=true)
 
-
 - **Light Hole Band Fitting**:
   
   ![Light Hole Band Fitting](https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/Light_hole_band_5%_fit.png?raw=true)
