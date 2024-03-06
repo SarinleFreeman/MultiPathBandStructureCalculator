@@ -285,7 +285,6 @@ Upon execution, the script outputs several key files:
 - **Band Structure Images**: Store visual representations of the optimal parabola fitting for heavy and light hole bands, for example:
   
 - **Heavy Hole Band Fitting**:
-  https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/Heavy_hole_band_1%25_fit.png
   ![Heavy Hole Band Fitting](https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/Heavy_hole_band_1%25_fit.png?raw=true)
 
 - **Light Hole Band Fitting**:
