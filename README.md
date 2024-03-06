@@ -149,6 +149,35 @@ Post-job execution, MPBCalc generates several files in the job directory for mon
 
 Review these files to assess job execution and address potential issues.
 
-
 ## Bandstructure Viewer Post Processing
 
+In the `PostProcessing` folder, the `combination_csv_plotter.py` script is designed to visualize semiconductor band structures, showcasing the valence and conduction bands, energy thresholds, and bandgap points.
+
+### Generating Bandstructure Plots
+
+The BandStructureAnalyzer class, part of the `combination_csv_plotter.py`, automates the generation of bandstructure plots directly from simulation data and stores bandstructure characteristics.
+Below is an example plot:
+
+
+
+### Usage Instructions
+
+To generate your bandstructure plot, ensure you're in the root directory of MPBCalc and have your combined CSV file ready in the specified location. Use the following command structure:
+
+```bash
+python PostProcessing/combination_csv_plotter.py --csv_local_dir <PathToYourCSV> --sep_limits -3 3 --plot_limits <YourDesiredEnergyRange> --save_dir <DirectoryToSavePlot> --plot_title "Your Plot Title"
+```
+
+- `--csv_local_dir`: Path to the directory containing your combined CSV file.
+- `--sep_limits`: Energy range limits for separating valence and conduction bands.
+- `--plot_limits`: Energy range for the plot. If not provided, `sep_limits` will be used.
+- `--save_dir`: Directory where the plot should be saved.
+- `--plot_title`: Title of your plot.
+
+Running this script will generate a plot similar to the example shown above, saving it to the specified directory, along with updating the `args.json` file with the bandgap energy, mean energy, and maximum valence point for further analysis.
+
+Ensure you have all the dependencies installed and have access to Python and necessary libraries as outlined in the "Getting Started" section of this README.
+
+---
+
+Adapt the example command to match your project setup and directory structure. This section provides a streamlined approach to visualizing and analyzing the electronic band structures post-simulation.
