@@ -23,6 +23,7 @@ The MPBCalc tool streamlines semiconductor band structure analysis, generating n
 ├── csv_combiner.py
 ├── main.py
 └── requirements.txt
+└── fmdat.ex
 ```
 
 ## Getting Started
