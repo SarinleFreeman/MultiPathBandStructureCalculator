@@ -153,17 +153,9 @@ Review these files to assess job execution and address potential issues.
 
 In the `PostProcessing` folder, the `combination_csv_plotter.py` script is designed to visualize semiconductor band structures, showcasing the valence and conduction bands, energy thresholds, and bandgap points.
 
-### Generating Bandstructure Plots
+### Usage
 
-The BandStructureAnalyzer class, part of the `combination_csv_plotter.py`, automates the generation of bandstructure plots directly from simulation data and stores bandstructure characteristics.
-Below is an example plot:
-
-![Bandstructure Plot](/path/to/bandstructure_plot.png)
-
-
-### Usage Instructions
-
-To generate your bandstructure plot, ensure you're in the root directory of MPBCalc and have your combined CSV file ready in the specified location. Use the following command structure:
+To run the script, ensure you're in the root directory of MPBCalc and have your combined CSV file ready in the specified location. Use the following command structure:
 
 ```bash
 python PostProcessing/combination_csv_plotter.py --csv_local_dir <PathToYourCSV> --sep_limits -3 3 --plot_limits <YourDesiredEnergyRange> --save_dir <DirectoryToSavePlot> --plot_title "Your Plot Title"
@@ -175,10 +167,127 @@ python PostProcessing/combination_csv_plotter.py --csv_local_dir <PathToYourCSV>
 - `--save_dir`: Directory where the plot should be saved.
 - `--plot_title`: Title of your plot.
 
-Running this script will generate a plot similar to the example shown above, saving it to the specified directory, along with updating the `args.json` file with the bandgap energy, mean energy, and maximum valence point for further analysis.
+e.g:
+```
+python PostProcessing/combination_csv_plotter.py --csv_local_dir BSIAsmall/IndiumAntimony_combined.csv --save_dir BSIAsmall/ --plot_title "IndiumAntimonide Bandstructure"
+```
 
-Ensure you have all the dependencies installed and have access to Python and necessary libraries as outlined in the "Getting Started" section of this README.
+### Output Summary:
 
----
+Upon execution, the script outputs several key files:
 
-Adapt the example command to match your project setup and directory structure. This section provides a streamlined approach to visualizing and analyzing the electronic band structures post-simulation.
+- **JSON Files**: The script updates the `args.json` file in the output directory with the bandgap energy, mean energy, and maximum valence point for further analysis.
+
+E.g:
+```
+{
+    "title": "In",
+    "symbolic_path": [
+        "L",
+        "\u0393",
+        "X",
+        "U",
+        "K",
+        "\u0393"
+    ],
+    "coordinate_representation": [
+        [
+            1,
+            1,
+            1
+        ],
+        [
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            0,
+            0
+        ],
+        [
+            0,
+            2,
+            0
+        ],
+        [
+            0,
+            2,
+            0
+        ],
+        [
+            0.5,
+            2,
+            0.5
+        ],
+        [
+            0.5,
+            2,
+            0.5
+        ],
+        [
+            1.5,
+            1.5,
+            0
+        ],
+        [
+            1.5,
+            1.5,
+            0
+        ],
+        [
+            0,
+            0,
+            0
+        ]
+    ],
+    "band_energy": 0.23539030244328074,
+    "mean_energy": 0.1377286427952431,
+    "max_segment_point": "(0, 0, 0)"
+}
+```
+
+- **Band Structure Images**: The script plots the bandstructure whilst highlighting important characteristics, e.g: 
+![Bandstructure Plot](https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/bandstructure_plot.png?raw=true)
+
+
+
+
+## Effective Mass Calculator Post Processing
+
+The `PostProcessing` directory includes the `eff_mass_calculator.py` file; which generates the effective masses and plots for the heavy/light holes within the bandstructure.
+
+### Usage:
+
+To run the Effective Mass Calculator, ensure you're in the root directory of the project and use the following command template:
+
+```bash
+python PostProcessing/eff_mass_calculator.py --csv_dir PATH_TO_CSV_FILES --mu MEAN_ENERGY_VALUE --sep_limits LOWER_LIMIT UPPER_LIMIT
+```
+
+- **PATH_TO_CSV_FILES**: Directory containing the CSV files from the band structure analysis.
+- **MEAN_ENERGY_VALUE**: Pre-calculated mean energy value for the material under study, this can be generated via the Bandstructure view calculator.
+- **LOWER_LIMIT UPPER_LIMIT**: Energy range limits for the separation calculation.
+
+For example:
+
+```bash
+python PostProcessing/eff_mass_calculator.py --csv_dir BSIAsmall --mu 0.1377 --sep_limits -3 3
+```
+
+### Output Summary:
+
+Upon execution, the script outputs several key files:
+
+- **JSON Files**: Contain calculated effective mass values for both heavy and light holes, formatted as `{"g": VALUE, "equivalency": "(h^2/a^2)(1/8m_{eff}e)"}`. Where $g$ relates to the effective mass by $g = \frac{h^2}{8ma^2e}$ where $m$ is the effective mass, $a$ is the lattice constant, $e$ is the charge of the electron and $h$ is the plancks constant.
+
+- **Band Structure Images**: Store visual representations of the optimal parabola fitting for heavy and light hole bands, for example:
+  
+- **Heavy Hole Band Fitting**:
+  
+  ![Heavy Hole Band Fitting](/path/to/Heavy_hole_band_1%_fit.png)
+
+- **Light Hole Band Fitting**:
+  
+  ![Light Hole Band Fitting](/path/to/Light_hole_band_5%_fit.png)
