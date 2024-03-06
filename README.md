@@ -158,7 +158,7 @@ In the `PostProcessing` folder, the `combination_csv_plotter.py` script is desig
 The BandStructureAnalyzer class, part of the `combination_csv_plotter.py`, automates the generation of bandstructure plots directly from simulation data and stores bandstructure characteristics.
 Below is an example plot:
 
-![Bandstructure Plot](/path/to/bandstructure_plot.png)
+![Bandstructure Plot]([/path/to/bandstructure_plot.png](https://github.com/SarinleFreeman/MultiPathBandStructureCalculator/blob/main/img/bandstructure_plot.png)
 
 
 ### Usage Instructions
