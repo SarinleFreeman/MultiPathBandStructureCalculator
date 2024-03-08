@@ -106,8 +106,8 @@ class EffectiveMassCalculator:
 
         # Plotting the best fit
         if best_params is not None:
-            g = best_params[1]  # best_params[1] should correspond to the fit value of (hbar^2/2m*)
-            effective_mass_output = {'g': g, 'equivalency': '(h^2/a^2)(1/8m_{eff}e)'}
+            m_star = best_params[1]  # best_params[1] should correspond to the fit value of (hbar^2/2m*)
+            effective_mass_output = {'g': m_star, 'equivalency': '(h^2/a^2)(1/8m_{eff}e)'}
             with open(f'{self.args_directory}/m_star_{band_type.capitalize().replace(" ", "_")}.json', 'w') as f:
                 json.dump(effective_mass_output, f)
             print(f"Effective mass m* = {m_star:.2e} hbar^2/eV*m^2 (for best fit in {band_type.capitalize()} band)")
